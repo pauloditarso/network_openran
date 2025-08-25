@@ -1,0 +1,122 @@
+\documentclass[10pt,xcolor=table]{beamer}
+
+\usetheme[progressbar=frametitle]{metropolis}
+\usepackage{appendixnumberbeamer}
+\usepackage{hyperref}
+\usepackage{tikz}
+% \usetikzlibrary{calc,decorations.pathreplacing,snakes}
+\usetikzlibrary{calc,decorations.pathreplacing}
+\usepackage{multicol}
+\usepackage{comment}
+\usepackage[portuguese]{babel}
+% \usepackage[style=authortitle,backend=bibtex]{biblatex}
+\usepackage[style=authortitle,backend=biber]{biblatex}
+\addbibresource{references.bib}
+\usepackage{subfig}
+\usepackage{csquotes}
+\usepackage{caption}
+% \usepackage{tikz}
+% \usetikzlibrary{arrows.meta,positioning}
+
+\hypersetup{colorlinks=true,linkcolor=,urlcolor=blue}
+
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+  \insertshorttitle\hfill%
+  \insertframenumber\,/\,\inserttotalframenumber}
+
+\newcommand{\hideFromPandoc}[1]{#1}
+\hideFromPandoc{
+  \let\Begin\begin
+  \let\End\end
+}
+
+\newcommand{\verbatimfont}[1]{\renewcommand{\verbatim@font}{\ttfamily#1}}
+
+\newcommand{\PR}[1]{\ensuremath{\left[#1\right]}}
+\newcommand{\PC}[1]{\ensuremath{\left(#1\right)}}
+\newcommand{\chav}[1]{\ensuremath{\left\{#1\right\}}}
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+
+\usepackage{pgfpages} % for multiple-screen presentations
+% \setbeameroption{show notes on second screen}
+% \setbeameroption{show notes on second screen=right} % Both
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+
+
+\setbeamertemplate{frame footer}{\includegraphics[height=0.5cm]{figs/logos.png}}
+
+\setbeamercolor{background canvas}{bg=white}
+
+% \setbeamertemplate{sections/subsections in toc}[ball]
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[ball unnumbered]
+\setbeamerfont{footnote}{size=\tiny}
+
+\setbeamertemplate{blocks}[rounded][shadow]
+
+\renewcommand{\footnotesize}{\tiny}
+\renewcommand*{\bibfont}{\tiny}
+
+\makeatletter
+\renewcommand\@makefntext[1]{%
+  \noindent
+  \hangindent=5em   % recuo aplicado em TODAS as linhas
+  \hangafter=0      % aplica após a primeira linha
+  \makebox[1em][r]{\@thefnmark.\,}#1}
+\makeatother
+
+% Main slide
+\title{Da Evolução das Redes Móveis \\ao Open RAN}
+% \subtitle{Subtitle}
+\date{\today}
+% \date{October 31, 2024}
+\author{\textbf{Prof. Dr. Paulo Ditarso Maciel Jr. (\href{mailto:paulo.maciel@ifpb.edu.br}{paulo.maciel@ifpb.edu.br})}}
+\institute{
+\centering
+\normalsize
+\vspace{0.5cm}
+{\Large \textbf{Desagregação, Virtualização e Novos Paradigmas em Telecom}}\\
+\vspace{0.5cm}
+{\small \textbf{Aula modelo para a\\ \href{https://www.cesar.school/especializacao/open-ran/}{\textit{Especialização em Open RAN: Redes Abertas e Tecnologias Emergentes}}.}} \\
+\vspace{0.5cm}
+{\scriptsize
+\texttt{\$ git clone \href{https://github.com/pdmjr/network_openran.git}{https://github.com/pdmjr/network\_openran.git}}
+}
+}
+
+\titlegraphic{\hfill\includegraphics[height=1.1cm]{figs/logos.png}}
+
+\begin{document}
+
+\maketitle
+
+\input{sections/00_inicio}
+
+\input{sections/01_intro}
+
+\input{sections/02_virtual}
+
+\input{sections/03_openran}
+
+\input{sections/04_futuro}
+
+\input{sections/05_conclusao}
+
+\begin{frame}[allowframebreaks]
+\nocite{*}
+\printbibliography
+\end{frame}
+
+% \begin{frame}{}
+%   \centering \Large
+%   \textbf{? \& | !}
+% \end{frame}
+
+\end{document}
